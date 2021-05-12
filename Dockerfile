@@ -1,6 +1,6 @@
 # inherit prebuilt image
 #Changed docker file
-FROM prajwals3/projectfizilion:latest
+FROM elytra8/fizfed:latest
 
 # env setup
 RUN mkdir /Fizilion && chmod 777 /Fizilion
@@ -9,7 +9,10 @@ WORKDIR /Fizilion
 
 # clone repo
 RUN git clone https://github.com/PrajjuS/ProjectFizilion -b demon /Fizilion
+#RUN git clone https://github.com/Senpai-sama-afk/ProjectFizilion -b dragon /Fizilion
 
+# Copies session and config(if it exists)
+COPY ./sample_config.env ./userbot.session* ./config.env* /Fizilion/
 
 #transfer
 RUN curl -sL https://git.io/file-transfer | sh
